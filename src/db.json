@@ -5,13 +5,15 @@
 			"price": 12,
 			"url": "https://static.1000.menu/img/content/21458/-salat-cezar-s-kr-salat-cezar-s-krevetkami-s-maionezom_1501173720_1_max.jpg",
 			"category": "salads",
+			"icon": "https://www.flaticon.com/svg/vstatic/svg/2995/2995852.svg?token=exp=1613752618~hmac=77efa097b3310e22117a1091bc674559",
 			"id": 1
 		},
 		{
-			"title": "Pizza Margherita",
+			"title": "Pasta Margherita",
 			"price": 10,
-			"url": "http://www.academiabarilla.com/anteprima_pizzamargherita_xhm1p-2_1200.jpg?h=faa3bae42d7180a508c490395249247ded3f362c",
-			"category": "pizza",
+			"url": "https://www.academiabarilla.it/wp-content/uploads/2020/12/684-spaghetti-prosciutto-rucola-e-pomodorini.jpg",
+			"category": "pasta",
+			"icon": "https://www.flaticon.com/svg/vstatic/svg/701/701980.svg?token=exp=1613752532~hmac=d7d0c40343726ee9330e37717b9d70c3",
 			"id": 2
 		},
 		{
@@ -19,6 +21,7 @@
 			"price": 13,
 			"url": "https://www.pizzanapoletana.org/struttura/pagine_bicolor/mobile/decalogo_avpn_1.jpg",
 			"category": "pizza",
+			"icon": "https://www.flaticon.com/svg/vstatic/svg/1161/1161674.svg?token=exp=1613752772~hmac=cd45c209885f6f0ea3f352650cdfe72b",
 			"id": 3
 		},
 		{
@@ -26,6 +29,7 @@
 			"price": 8,
 			"url": "https://assets.epicurious.com/photos/576454fb42e4a5ed66d1df6b/master/pass/greek-salad.jpg",
 			"category": "salads",
+			"icon": "https://www.flaticon.com/svg/vstatic/svg/2995/2995852.svg?token=exp=1613752618~hmac=77efa097b3310e22117a1091bc674559",
 			"id": 4
 		},
 		{
@@ -33,6 +37,7 @@
 			"price": 25,
 			"url": "https://i.cbc.ca/1.4491288.1516208229!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_780/cowboysteak.jpg",
 			"category": "meat",
+			"icon": "https://www.flaticon.com/svg/vstatic/svg/933/933310.svg?token=exp=1613752701~hmac=a74b23be2ee61358cfbf0325ea5b0314",
 			"id": 5
 		}
 	]
