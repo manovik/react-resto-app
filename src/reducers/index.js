@@ -26,27 +26,48 @@ const reducer = (state = initialState, action) => {
       };
     case "ADD_TO_CART":
       const id = action.payload;
+
+      const itemIndx = state.items.findIndex(item => item.id === id);
+      // console.log(itemIndx);
+      if(itemIndx >= 0) {
+        const itemInState = state.items.find(item => item.id === id);
+
+        const newItem = {
+          ...itemInState,
+          count: itemInState.count + 1
+        }
+
+        return {
+          ...state,
+          items: [
+            ...state.items.slice(0, itemIndx),
+            newItem,
+            ...state.items.slice(itemIndx + 1)
+          ],
+          total: state.total + newItem.price
+        }
+      }
+
       const item = state.menu.find(item => item.id === id);
       const newItem = {
         title: item.title,
         id: item.id,
         price: item.price,
-        url: item.url
+        url: item.url,
+        count: 1
       };
-      const totalCost = countPrice([...state.items, newItem]);
+
+      const allItems = [...state.items, newItem];
+
       return {
         ...state,
-        items: [
-          ...state.items,
-          newItem
-        ],
-        total: totalCost
+        items: allItems,
+        total: countPrice(allItems)
       };
     case "DELETE_FROM_CART":
       const itemToDelete = state.items.findIndex(item => {
         return item.id === action.payload
       });
-      const totalCostx = countPrice(state.items);
       const newItems = [];
       state.items.map((item, i) => {
         if(i !== itemToDelete) {
@@ -54,8 +75,8 @@ const reducer = (state = initialState, action) => {
         }
         return newItems;
       });
-      console.log('newItems ---', newItems);
-
+      
+      const totalCostx = countPrice(newItems);
       return {
         ...state,
         items: newItems,
@@ -69,9 +90,10 @@ const reducer = (state = initialState, action) => {
 function countPrice(arr) {
   let cost = 0;
   arr.forEach(item => {
-    cost += item.price;
+    cost += item.price * item.count;
   });
   return cost;
 }
+
 
 export default reducer;

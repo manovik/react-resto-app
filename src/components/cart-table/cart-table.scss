@@ -32,6 +32,22 @@
             width: 250px;
             object-fit: cover;
         }
+        &-count {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: -10px;
+            left: -10px;
+            color: #fff;
+            font-size: 15px;
+            border-radius: 50%;
+            border: 1px solid #fff;
+            background-color: rgba(0, 0, 0, 0.7);
+            cursor: pointer;
+        }
     }
     &__close {
         position: absolute;
