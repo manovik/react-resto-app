@@ -26,3 +26,15 @@ export const deleteFromCart = (id) => {
     payload: id
   }
 }
+export const removeAllCartItems = (items, total) => {
+  return {
+    type:"SENDED_ORDER",
+    payload: items,
+    total: total
+  }
+}
+export const showOrderStatus = () => {
+  return {
+    type:"CHANGE_ORDER_STATUS"
+  }
+}

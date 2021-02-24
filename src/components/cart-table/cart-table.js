@@ -1,21 +1,38 @@
 import React from "react";
 import { connect } from "react-redux";
-import { deleteFromCart } from "../../actions";
+import { deleteFromCart, removeAllCartItems, showOrderStatus } from "../../actions";
+import RestoService from '../../services/resto-service'
 import "./cart-table.scss";
 
-const CartTable = ({ items, deleteFromCart }) => {
+const CartTable = ({ items, total, orderStatus, deleteFromCart, removeAllCartItems, showOrderStatus }) => {
+
+  const sendOrder = new RestoService();
+
   if (items.length === 0) {
     return (
       <>
         <div className="cart__title">Ваш заказ:</div>
         <div className="cart__list">
           <div className="cart__item">
-            <div className="cart__item-title">Пока здесь пусто...</div>
-            <div className="cart__item-price"></div>
+            {
+              orderStatus 
+              ? <div className="cart__item-title">Ваш заказ отправлен!</div>
+              : <div className="cart__item-title">Пока здесь пусто...</div>
+            }
           </div>
         </div>
       </>
     );
+  }
+
+  const handleClick = () => {
+    const data = {
+      items,
+      total
+    }
+    sendOrder.postCartItems(data);
+    removeAllCartItems();
+    setTimeout(showOrderStatus, 4000);
   }
 
   return (
@@ -36,18 +53,23 @@ const CartTable = ({ items, deleteFromCart }) => {
             </div>
           );
         })}
+        <div onClick={handleClick} className="cart__submit-btn">Make Order</div>
       </div>
     </>
   );
 };
 
-const mapStateToProps = ({ items }) => {
+const mapStateToProps = ({ items, total, orderStatus }) => {
   return {
     items,
+    total,
+    orderStatus
   };
 };
 const mapDispatchToProps = {
   deleteFromCart,
+  removeAllCartItems, 
+  showOrderStatus
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CartTable);

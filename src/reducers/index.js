@@ -1,9 +1,12 @@
+
+
 const initialState = {
   menu: [],
   loading: true,
   error: false,
   items: [],
-  total: 0
+  total: 0,
+  orderStatus: false
 }
 
 const reducer = (state = initialState, action) => {
@@ -81,6 +84,18 @@ const reducer = (state = initialState, action) => {
         ...state,
         items: newItems,
         total: totalCostx
+      };
+    case "SENDED_ORDER":
+      return {
+        ...state,
+        items: [],
+        total: 0,
+        orderStatus: true
+      };
+    case "CHANGE_ORDER_STATUS":
+      return {
+        ...state,
+        orderStatus: false
       };
     default:
       return state
